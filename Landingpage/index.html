@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chang Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="chang.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Tela de carregamento -->
+    <div id="loading-overlay">
+        <div class="chaotic-orbit"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="left">
+                <label class="hamburger" aria-label="Abrir menu">
+                    <input type="checkbox" aria-hidden="true">
+                    <svg viewBox="0 0 32 32">
+                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="line" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+            <div class="search-bar">
+                <img src="img/Vector.png" alt="Logo">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">INICIO</a></li>
+            <li><a href="#">SOBRE</a></li>
+            <li><a href="#">CONTATO</a></li>
+            <li><a href="destaques/index.html">DESTAQUES</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Lateral -->
+    <div class="side-menu" id="sideMenu" role="navigation" aria-label="Menu Lateral">
+        <button class="close-btn" id="closeMenu" aria-label="Fechar menu">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="#">INICIO</a></li>
+                <li><a href="#">SOBRE</a></li>
+                <li><a href="#">CONTATO</a></li>
+                <li><a href="destaques/index.html">DESTAQUES</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <div class="slideshow">
+            <div class="slide-content">
+                <!-- Conteúdo adicional do slide aqui -->
+            </div>
+            <div class="slideshow-dots">
+                <span class="active"></span>
+                <span></span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <section class="footer">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <ul class="links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Compressions</a></li>
+                        <li><a href="#">Customers</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Collection</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-col">
+                    <h4>Adidas</h4>
+                    <ul class="links">
+                        <li><a href="destaques 2/index copy.html">Camisas</a></li>
+                        <li><a href="destaques/index.html">Sapatos</a></li>
+                        <li><a href="#">Themes</a></li>
+                        <li><a href="#">Popular Designs</a></li>
+                        <li><a href="#">Art Skills</a></li>
+                        <li><a href="#">New Uploads</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="links">
+                        <li><a href="#">Customer Agreement</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Media Kit</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>
+                        Subscribe to our newsletter for a weekly dose
+                        of news, updates, helpful tips, and
+                        exclusive offers.
+                    </p>
+                    
+                    </form>
+                    <div class="icons">
+                        <img src="img/Vector.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    
+
+    <script>
+        // Slideshow
+        const slideshow = document.querySelector('.slideshow');
+        const dots = document.querySelectorAll('.slideshow-dots span');
+        const images = [
+            "img/Untitled design (6).png",
+            "img/Untitled design (4).png"
+        ];
+
+        let currentIndex = 0;
+
+        function updateSlideshow() {
+            slideshow.style.backgroundImage = `url('${images[currentIndex]}')`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlideshow();
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlideshow();
+            });
+        });
+
+        window.addEventListener('load', () => {
+            updateSlideshow();
+            document.getElementById('loading-overlay').style.display = 'none';
+        });
+
+        setInterval(nextSlide, 5000);
+
+        // Controle do menu lateral
+        const hamburgerInput = document.querySelector('.hamburger input');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+
+        hamburgerInput.addEventListener('change', function() {
+            if (this.checked) {
+                sideMenu.classList.add('active');
+            } else {
+                sideMenu.classList.remove('active');
+            }
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            hamburgerInput.checked = false;
+            sideMenu.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

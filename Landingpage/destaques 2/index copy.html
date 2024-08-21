@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Adidas Products</h1>
+        </div>
+    </header>
+    
+    <main>
+        <aside class="filters">
+            <h2>Filter by</h2>
+            <div class="filter-category">
+                <label>Category</label>
+                <select id="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="sneakers">Sneakers</option>
+                    <option value="tshirts">T-Shirts</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="filter-size">
+                <label>Size</label>
+                <select id="size-filter">
+                    <option value="">All Sizes</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <!-- Add more filters here -->
+        </aside>
+        
+        <section class="product-list">
+            <div class="product" data-category="sneakers" data-size="medium">
+                <img src="shit/Image-1.png" alt="Adidas Samba Classic">
+                <p>Adidas Samba Classic</p>
+                <span>$130.00</span>
+            </div>
+            <div class="product" data-category="sneakers" data-size="large">
+                <img src="shit/Image-10.png" alt="Adidas Superstar">
+                <p>Adidas Superstar</p>
+                <span
